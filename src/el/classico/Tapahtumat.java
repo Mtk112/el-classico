@@ -36,6 +36,7 @@ public class Tapahtumat {
         if (tapahtuma>=96 && tapahtuma<=99)
             JOptionPane.showMessageDialog(null, "Vapaapotku. Maali");
     }
+    
     public void Maali(int maali){
         maali = arpa.nextInt(100);
         
