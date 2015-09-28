@@ -6,13 +6,17 @@ public class Tapahtumat {
 
     private Random tapahtumat = new Random();
     private Random arpa = new Random();
+    private Pelaaja pelaaja = new Pelaaja();
     
     public Tapahtumat(){}
     
-    public Tapahtumat(int tapahtuma){
+    public int Tapahtumat(int tapahtuma){
         tapahtuma = tapahtumat.nextInt(100);
+        
+        if (tapahtuma>=1 && tapahtuma<=15)
+            JOptionPane.showMessageDialog(null, "Syötönkatko");
 
-        if (tapahtuma>=1 && tapahtuma<=30)
+        if (tapahtuma>=16 && tapahtuma<=30)
             JOptionPane.showMessageDialog(null, "Sivurajaheitto");
             
         if (tapahtuma>=31 && tapahtuma<=50)
@@ -35,45 +39,50 @@ public class Tapahtumat {
         
         if (tapahtuma>=96 && tapahtuma<=99)
             JOptionPane.showMessageDialog(null, "Vapaapotku. Maali");
+        
+        return tapahtuma;
     }
     
-    public void Maali(int maali){
-        maali = arpa.nextInt(100);
+    public int Poikkeus(int poikkeus){
+        poikkeus = arpa.nextInt(100);
         
-        if (maali>=1 && maali<=25)
-            JOptionPane.showMessageDialog(null, "Maali.");
+        if (poikkeus>=1 && poikkeus<=25)
+                    if (pelaaja.getHyokkays() <= pelaaja.getPuolustus())
+                        JOptionPane.showMessageDialog(null, "MAAAALLIIII");
         
-        if (maali>=26 && maali<=50)
+        if (poikkeus>=26 && poikkeus<=50)
             JOptionPane.showMessageDialog(null, "Keltainen kortti.");
         
-        if (maali>=51 && maali<=55)
+        if (poikkeus>=51 && poikkeus<=55)
             JOptionPane.showMessageDialog(null, "Punainen kortti.");
         
-        if (maali>=56 && maali<=60)
+        if (poikkeus>=56 && poikkeus<=60)
             JOptionPane.showMessageDialog(null, "Rangaistuspotku.");
         
-        if (maali>=61 && maali<=65)
+        if (poikkeus>=61 && poikkeus<=65)
             JOptionPane.showMessageDialog(null, "Loukkaantuminen (voi jatkaa).");
         
-        if (maali>=66 && maali<=70)
+        if (poikkeus>=66 && poikkeus<=70)
             JOptionPane.showMessageDialog(null, "Loukkaantuminen (ei voi jakaa).");
 
-        if (maali>=71 && maali<=75)
+        if (poikkeus>=71 && poikkeus<=75)
             JOptionPane.showMessageDialog(null, "Pusku Maali.");
         
-        if (maali>=76 && maali<=80)
+        if (poikkeus>=76 && poikkeus<=80)
             JOptionPane.showMessageDialog(null, "Vaihto.");
         
-        if (maali>=81 && maali<=85)
+        if (poikkeus>=81 && poikkeus<=85)
             JOptionPane.showMessageDialog(null, "Oma Maali.");
         
-        if (maali>=86 && maali<=90)
+        if (poikkeus>=86 && poikkeus<=90)
             JOptionPane.showMessageDialog(null, "Valmentaja stadionin puolelle.");
         
-        if (maali>=91 && maali<=97)
+        if (poikkeus>=91 && poikkeus<=97)
             JOptionPane.showMessageDialog(null, "Viuhahtelija!");
         
-        if (maali>=98 && maali<=99)
+        if (poikkeus>=98 && poikkeus<=99)
             JOptionPane.showMessageDialog(null, "Ufo laskeutuu ja vie pallot! Peli päättyy.");
+        
+        return poikkeus;
     }
 }
